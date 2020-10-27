@@ -10,7 +10,7 @@
         {{item.type===3? '顺舟zigbee灯控器':''}}
         </h3>
        <div>名称 : {{ item.name }}</div>
-    <div >
+    <div>
       在线状态 :
       {{ item.online?'在线':'下线' }}
     </div>
@@ -22,7 +22,7 @@
       灯控器地址 ：
       {{ item.address }}
     </div>
-       <button>
+       <button @click="toAbout(item)">
           详情
         </button>
          <button
@@ -46,5 +46,13 @@ import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
 export default class Home extends Vue {
   msg='Welcome to My Vue.js + TypeScript spa'
   products=this.$store.state.productList
+  toAbout (item: object): void{
+    this.$router.push({
+      name: 'About',
+      params: {
+        product: JSON.stringify(item)
+      }
+    })
+  }
 }
 </script>
