@@ -8,7 +8,7 @@ export default new Vuex.Store({
     productList: Array<Product>()
   },
   mutations: {
-    createProductList (state) {
+    createProductList (state): void {
       for (let i = 0; i < 20; i++) {
         let type: number, online: boolean, status: boolean
         switch (i % 3) {
