@@ -25,7 +25,7 @@
        <button @click="toAbout(item)">
           详情
         </button>
-         <button
+         <button @click="toEdit(item)"
         >编辑</button
       >
       </li>
@@ -49,6 +49,15 @@ export default class Home extends Vue {
   toAbout (item: object): void{
     this.$router.push({
       name: 'About',
+      params: {
+        product: JSON.stringify(item)
+      }
+    })
+  }
+
+  toEdit (item: object): void{
+    this.$router.push({
+      name: 'Edit',
       params: {
         product: JSON.stringify(item)
       }
