@@ -31,6 +31,17 @@ export default new Vuex.Store({
         const product: Product = new Product(i, type, online, status)
         state.productList.push(product)
       }
+    },
+    change(state,payload):void {
+      state.productList.forEach((item: Product) => {
+        let product:Product = item
+        if (product.id === payload.id) {
+          product.status = payload.status
+          product.name = payload.name
+          product.online = payload.online
+          state.productList.splice(payload.id,1,product)
+        }
+      })
     }
   },
   actions: {
